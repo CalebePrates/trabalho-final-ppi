@@ -1,0 +1,19 @@
+footer {
+    background-color: #0d6efd;
+}
+
+#div-logout {
+    justify-content: flex-end;
+}
+
+#main-tournament {
+    justify-content: center;
+}
+
+#section-apply-tournament {
+    margin-top: 50px;
+}
+
+.alert {
+    margin-bottom: 0 !important;
+}

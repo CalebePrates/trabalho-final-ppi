@@ -1,0 +1,13 @@
+body {
+    display: flex;
+}
+
+#navbar-admin {
+    width: 280px;
+    height: 100vh;
+}
+
+#table-listing {
+    margin-top: 50px;
+    padding: 50px;
+}

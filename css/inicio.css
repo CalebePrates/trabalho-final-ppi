@@ -30,25 +30,3 @@ img {
 .carousel-item h5 {
     color: white;
 }
-
-a {
-    text-decoration: none !important;
-}
-
-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #212529;
-    color: white;
-}
-
-.imagem-footer {
-    height: 20px;
-    width: 20px;
-    object-fit: cover;
-}
-
-ul {
-    list-style-type: none;
-}

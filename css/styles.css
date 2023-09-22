@@ -1,0 +1,28 @@
+a {
+    text-decoration: none !important;
+}
+
+footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #212529;
+    color: white;
+}
+
+.imagem-footer {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body {
+    overflow-x: hidden;
+}
