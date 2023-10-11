@@ -38,7 +38,7 @@ img {
 
 
 .contador {
-    background-color: #f2f2f2; 
+    background-color: #d4d4d4e1; 
     padding: 10px;
     border-radius: 10px;
     text-align: center;
@@ -83,5 +83,13 @@ small {
     font-size: 12px;
     display: block;
     margin-top: 5px;
-    color: #333; /* Cor do texto cinza escuro */
+    color: #333; 
+}
+.rating{
+    background-color: #000;
+    width: 100%; 
+    margin: 0 auto;
+    font-size: 24px;
+    max-height: 300px;
+    overflow-y: auto;
 }
