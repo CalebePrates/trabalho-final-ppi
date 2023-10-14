@@ -35,21 +35,40 @@
         </nav>
     </header>
     <main>
-        <section class="row" id="section-login">
-            <form class="col-sm-12 col-md-8 col-xl-6">
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password">
-                </div>
-                <div class="mb-3">
-                  <label for="confirm_password" class="form-label">Confirmar senha</label>
-                  <input type="password" class="form-control" id="confirm_password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+        <section class="row " id="section-login">
+            <form class="col-sm-12 col-md-8 col-xl-6 container center ">
+                        <div  class="card">
+                            <h1>SOLICITAR ACESSO LXUFU </h1>
+                            <div id="msgError"></div>
+                            <div id="msgSuccess"></div>
+            
+                            <div class="label-float">
+                                <input type="text" id="nome" placeholder="" required autocomplete="off">
+                                <label id="labelNome" for="nome">Nome</label>
+                            </div>
+            
+                            <div class="label-float">
+                                <input type="text" id="usuario" placeholder="" required autocomplete="off">
+                                <label id="labelUsuario" for="usuario">Usuário</label>
+                            </div>
+            
+                            <div class="label-float">
+                                <input type="password" name="" id="senha" required autocomplete="off" >
+                                <label id="labelSenha" for="senha">Senha</label>
+                                <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+                            </div>
+            
+                            <div class="label-float">
+                                <input type="password" name="" id="confirmaSenha" required  autocomplete="off">
+                                <label id="labelConfirmaSenha" for="confirmaSenha">Confirmar Senha</label>
+                                <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+                            </div>
+            
+                            <div class="justify-center">
+                                <button type="" id="btnCadastro" onclick="cadastrar()">Solicitar Acesso</button>
+                            </div>
+                        </div>
+            <script src="js/cadastro.js"></script> 
               </form>
         </section>
     </main>
