@@ -107,3 +107,8 @@ small {
     background-color: #d4d4d4e1;
     border-radius: 20px;
   }
+
+  .mapa{
+    width: 50vh;
+    height: 50vh;
+  }
