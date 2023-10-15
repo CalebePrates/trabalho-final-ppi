@@ -1,24 +1,14 @@
-#section-galeria {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
 img {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    margin: 10px;
-}
-
-#galeria {
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
+    padding: 10px;
+    filter: brightness(0.7);
 }
 
 .imagem-slide {
-    margin: 0;
+    margin: 0px;
+    padding: 0px;
     width: 100vw;
     height: 95vh;
 }
@@ -29,4 +19,81 @@ img {
 
 .carousel-item h5 {
     color: white;
+}
+.about-us{
+    width: 40%;
+    height: 20%;
+}
+
+.contador {
+    background-color: #495057; 
+    padding: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.titulo_countdown1 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.countdown_1 {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.time_1 {
+    text-align: center;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 48px;
+    background-color:#000;  
+    color: #fff; 
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+small {
+ 
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    color: #333; 
+}
+
+.mapa{
+ 	 width: 50vh;
+  	height: 50vh;
+}
+
+.carousel-textos{
+  	font-size: 40px !important;
+    text-shadow: 2px 2px 6px black;
+}
+
+.posicao{
+    width: 5%;
+}
+
+#section-gallery {
+    background-color: #495057;
+    padding: 50px;
+}
+
+.gallery-item{
+    padding: 3px;
+}
+
+#section-localization {
+  height: 30vh;
+}
+
+#section-localization iframe {
+  height: 100%;
 }

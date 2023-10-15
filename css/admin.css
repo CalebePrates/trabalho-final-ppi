@@ -8,6 +8,15 @@ footer {
 
 #main-tournament {
     justify-content: center;
+    height: 100vh;
+}
+
+a {
+  color: white !important;
+}
+
+a:hover {
+  color: #212529 !important;
 }
 
 #section-apply-tournament {
