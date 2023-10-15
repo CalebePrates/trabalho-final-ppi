@@ -112,3 +112,19 @@ small {
     width: 50vh;
     height: 50vh;
   }
+  .carousel-textos{
+    font-size: 40px !important;
+  }
+.posicao{
+    width: 5%;
+}
+
+.galeria{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.galeria-item{
+    padding: 3px;
+}
