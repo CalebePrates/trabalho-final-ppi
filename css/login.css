@@ -141,3 +141,7 @@ a:hover{
     display: none;
     margin-top: 10px;
 }
+
+.loc{
+    margin-bottom: 2% !important;
+}
