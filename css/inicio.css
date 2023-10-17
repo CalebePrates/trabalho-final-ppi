@@ -91,9 +91,39 @@ small {
 }
 
 #section-localization {
-  height: 30vh;
+    background-color: #282A33;
+    color: #fff;
+    height: 40vh;
 }
 
 #section-localization iframe {
   height: 100%;
+}
+
+.section-aboutus{
+    background-color: #282A33;
+    color: #fff;
+    font-size: 36px;
+}
+
+.title-section{
+    padding: 8px;
+    font-size: 54px;
+}
+.box-about{
+    display: flex;
+     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.box-loc{
+    color: #fff;
+    font-size: 36px;
+
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+
 }
