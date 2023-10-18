@@ -10,7 +10,7 @@ img {
     margin: 0px;
     padding: 0px;
     width: 100vw;
-    height: 95vh;
+    height: 95%;
 }
 
 .carousel-item p {
@@ -68,7 +68,7 @@ small {
 }
 
 .mapa{
- 	 width: 50vh;
+ 	 width: 50vw;
   	height: 50vh;
 }
 
@@ -93,7 +93,7 @@ small {
 #section-localization {
     background-color: #282A33;
     color: #fff;
-    height: 40vh;
+    height: 40%;
 }
 
 #section-localization iframe {
@@ -103,12 +103,12 @@ small {
 .section-aboutus{
     background-color: #282A33;
     color: #fff;
-    font-size: 36px;
+    font-size: 1rem;
 }
 
 .title-section{
     padding: 8px;
-    font-size: 54px;
+    font-size: 2rem;
 }
 .box-about{
     display: flex;
@@ -118,7 +118,7 @@ small {
 }
 .box-loc{
     color: #fff;
-    font-size: 36px;
+    font-size: 1rem;
 
 }
 
