@@ -123,6 +123,7 @@ small {
 }
 
 a{
+    color: #fff  !important;
     text-decoration: none;
 
 }
