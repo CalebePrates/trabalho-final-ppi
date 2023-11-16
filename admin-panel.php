@@ -19,19 +19,19 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a href="admin-panel.html" class="nav-link text-white" aria-current="page">
+                <a href="admin-panel.php" class="nav-link active" aria-current="page">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                   Pedidos de acesso
                 </a>
               </li>
               <li>
-                <a href="admin-tournament-panel.html" class="nav-link text-white">
+                <a href="admin-tournament-panel.php" class="nav-link text-white">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
                   Pedidos de torneio
                 </a>
               </li>
               <li>
-                <a href="admin-users.html" class="nav-link active">
+                <a href="admin-users.php" class="nav-link text-white">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
                   Usuários
                 </a>
@@ -54,53 +54,50 @@
     </header>
     <main class="col-xl-10" id="main-admin">
         <section class="col-sm-12" id="table-listing">
-            <div class="d-flex box-pesquisa">
-              <input type="text" id="myInput" onkeyup="searchElement()" placeholder="Encontre o usuário..." title="Type in a name">
-              <button type="button" class="btn btn-danger">Excluir</button>
-            </div>
-
-            <div>    
-                <table id="myTable" class="table table-striped table-hover table-bordered ">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th class="posicao">Posição</th>
-                        <th>Nome</th>
-                        <th>LXUFU Rating</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                            </div>
-                        </th>
-                        <td >1</td>
-                        <td>Manozinho</td>
-                        <td>1500</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                            </div>
-                        </th>
-                        <td >1</td>
-                        <td>Zézinho</td>
-                        <td>1500</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                            </div>
-                        </th>
-                        <td >1</td>
-                        <td>Guilherme (meu pato)</td>
-                        <td>1500</td>
-                      </tr>
-                    </tbody>
+            <button type="button" class="btn btn-primary">Permitir</button>
+            <button type="button" class="btn btn-danger">Negar</button>
+            <div>
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th class="posicao">Usuario</th>
+                      <th>Nome</th>
+                      <th>LXUFU Rating</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="">
+                          </div>
+                      </th>
+                      <td >user1</td>
+                      <td>Player 1</td>
+                      <td>1500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="">
+                          </div>
+                      </th>
+                      <td >user1</td>
+                      <td>Player 1</td>
+                      <td>1500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="">
+                          </div>
+                      </th>
+                      <td>user1</td>
+                      <td>Player 1</td>
+                      <td>1500</td>
+                    </tr>
+                  </tbody>
                 </table>
             </div>
             <div>
@@ -116,7 +113,6 @@
             </div>
         </section>
     </main>
-    <script src="js/table-search.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>

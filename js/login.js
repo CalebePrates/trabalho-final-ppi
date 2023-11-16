@@ -5,7 +5,7 @@ let btnEntrar = document.getElementById('btnEntrar');
 setTimeout(() => {
     if (localStorage.getItem('listaUser') === null) {
         alert("NÃO HÁ USUÁRIOS CADASTRADOS, REALIZE SEU CADASTRO")
-        window.location.href = 'cadastro.html'
+        window.location.href = 'cadastro.php'
     }
 }, 3000)
 
@@ -60,7 +60,7 @@ function entrar() {
         
         
         setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = 'index.php';
         }, 1500) 
     }
 
