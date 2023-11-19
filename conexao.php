@@ -5,7 +5,7 @@ class Conexao {
     function __construct() {
         if (!isset($this->conexao)) {
             try {
-                $this->conexao = new PDO('mysql:host=localhost;dbname=meubanco', 'root', 'root');
+                $this->conexao = new PDO('mysql:host=localhost;dbname=meubanco', 'root', '');
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
             }
