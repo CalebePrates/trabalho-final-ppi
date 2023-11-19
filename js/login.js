@@ -58,10 +58,17 @@ function entrar() {
         let token = Math.random().toString(16).substr(2) + Math.random().toString(16).substr(2);
         localStorage.setItem('token', token);
         
+        if(usuario.value == 'admin'){
+            setTimeout(() => {
+                window.location.href = 'admin-panel.php';
+            }, 1500) 
+
+        }else{ 
+            setTimeout(() => {
+                window.location.href = 'player-panel.php';
+            }, 1500) 
+         }
         
-        setTimeout(() => {
-            window.location.href = 'index.php';
-        }, 1500) 
     }
 
     else {

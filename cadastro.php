@@ -43,17 +43,17 @@
                             <div id="msgSuccess"></div>
             
                             <div class="label-float">
-                                <input type="text" id="nome" placeholder="" required autocomplete="off">
+                                <input type="text" id="nome" name="nome" placeholder="" required autocomplete="off">
                                 <label id="labelNome" for="nome">Nome</label>
                             </div>
             
                             <div class="label-float">
-                                <input type="text" id="usuario" placeholder="" required autocomplete="off">
+                                <input type="text" id="usuario"name="usuario" placeholder="" required autocomplete="off">
                                 <label id="labelUsuario" for="usuario">Usuário</label>
                             </div>
             
                             <div class="label-float">
-                                <input type="password" name="" id="senha" required autocomplete="off" >
+                                <input type="password" name="senha" id="senha" required autocomplete="off" >
                                 <label id="labelSenha" for="senha">Senha</label>
                                 <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
                             </div>
@@ -72,6 +72,36 @@
               </form>
         </section>
     </main>
+    <?php
+    session_start();
+
+
+        require_once "conexao.php";
+
+        $conn = new Conexao();
+
+        $verificarUsuarioSql = "SELECT * FROM usuarios WHERE user = ?";
+        $verificarUsuarioStmt = $conn->conexao->prepare($verificarUsuarioSql);
+        $verificarUsuarioStmt->bindParam(1, $_POST["usuario"]);
+        $verificarUsuarioStmt->execute();
+
+        if ($verificarUsuarioStmt->rowCount() > 0) {
+            echo "Usuário já cadastrado. Escolha outro nome de usuário.";
+        } else {
+            //rating padrão é 1800
+            $cadastrarUsuarioSql = "INSERT INTO users (user,nome,rating,senha) VALUES (?, ?,1800, ?)";
+            $cadastrarUsuarioStmt = $conn->conexao->prepare($cadastrarUsuarioSql);
+
+
+            $cadastrarUsuarioStmt->bindParam(1, $_POST["usuario"]);
+            $cadastrarUsuarioStmt->bindParam(2, $_POST["nome"]);
+            $cadastrarUsuarioStmt->bindParam(3, $_POST["senha"]);
+            $cadastrarUsuarioStmt->execute();
+
+            echo "Cadastro realizado com sucesso. Faça o login agora.";
+        }
+
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
