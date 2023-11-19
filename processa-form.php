@@ -21,10 +21,10 @@
                     $cadastrarUsuarioStmt->bindParam(3, $_POST["senha"]);
                     $cadastrarUsuarioStmt->execute();
 
-                    echo "Cadastro realizado com sucesso. Faça o login agora.";
+                    header("location:login.php");
                 }
         }else{
-            echo '<div class="alert alert-danger" role="alert">Campos de senha e cofirma senha devem ser iguais.</div>';
+            header("location:cadastro.php");
         }
 
     ?>
