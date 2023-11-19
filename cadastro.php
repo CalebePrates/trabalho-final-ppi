@@ -1,3 +1,35 @@
+<?php
+    session_start();
+
+
+        require_once "conexao.php";
+        $conn = new Conexao();
+        if ((isset($_POST["submit"])&& $_POST["senha"]) == $_POST["senha1"]) {
+            $verificarUsuarioSql = "SELECT * FROM users WHERE user = ?";
+            $verificarUsuarioStmt = $conn->conexao->prepare($verificarUsuarioSql);
+            $verificarUsuarioStmt->bindParam(1, $_POST["usuario"]);
+            $verificarUsuarioStmt->execute();
+
+            if ($verificarUsuarioStmt->rowCount() > 0) {
+                echo '<div class="alert alert-danger" role="alert">Usuário já cadastrado. Escolha outro nome de usuário.</div>';
+            } else {
+                //rating padrão é 1800
+                $cadastrarUsuarioSql = "INSERT INTO users (user, nome, rating, senha) VALUES (?, ?,1800, ?)";
+                $cadastrarUsuarioStmt = $conn->conexao->prepare($cadastrarUsuarioSql);
+
+
+                $cadastrarUsuarioStmt->bindParam(1, $_POST["usuario"]);
+                $cadastrarUsuarioStmt->bindParam(2, $_POST["nome"]);
+                $cadastrarUsuarioStmt->bindParam(3, $_POST["senha"]);
+                $cadastrarUsuarioStmt->execute();
+
+                echo "Cadastro realizado com sucesso. Faça o login agora.";
+            }
+    }else{
+        echo '<div class="alert alert-danger" role="alert">Campos de senha e cofirma senha devem ser iguais.</div>';
+    }
+
+    ?>
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -59,49 +91,19 @@
                             </div>
             
                             <div class="label-float">
-                                <input type="password" name="" id="confirmaSenha" required  autocomplete="off">
+                                <input type="password" name="senha1" id="confirmaSenha" required  autocomplete="off">
                                 <label id="labelConfirmaSenha" for="confirmaSenha">Confirmar Senha</label>
                                 <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
                             </div>
             
                             <div class="justify-center">
-                                <button class="btn btn-success" id="btnCadastro" onclick="cadastrar()">Solicitar Acesso</button>
+                                <button class="btn btn-success" id="btnCadastro" name="submit" onclick="validar()">Solicitar Acesso</button>
                             </div>
                         </div>
             <script src="js/cadastro.js"></script> 
               </form>
         </section>
     </main>
-    <?php
-    session_start();
-
-
-        require_once "conexao.php";
-
-        $conn = new Conexao();
-
-        $verificarUsuarioSql = "SELECT * FROM usuarios WHERE user = ?";
-        $verificarUsuarioStmt = $conn->conexao->prepare($verificarUsuarioSql);
-        $verificarUsuarioStmt->bindParam(1, $_POST["usuario"]);
-        $verificarUsuarioStmt->execute();
-
-        if ($verificarUsuarioStmt->rowCount() > 0) {
-            echo "Usuário já cadastrado. Escolha outro nome de usuário.";
-        } else {
-            //rating padrão é 1800
-            $cadastrarUsuarioSql = "INSERT INTO users (user,nome,rating,senha) VALUES (?, ?,1800, ?)";
-            $cadastrarUsuarioStmt = $conn->conexao->prepare($cadastrarUsuarioSql);
-
-
-            $cadastrarUsuarioStmt->bindParam(1, $_POST["usuario"]);
-            $cadastrarUsuarioStmt->bindParam(2, $_POST["nome"]);
-            $cadastrarUsuarioStmt->bindParam(3, $_POST["senha"]);
-            $cadastrarUsuarioStmt->execute();
-
-            echo "Cadastro realizado com sucesso. Faça o login agora.";
-        }
-
-    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>

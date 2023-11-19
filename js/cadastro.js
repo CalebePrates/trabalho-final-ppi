@@ -89,25 +89,8 @@ confirmaSenha.addEventListener('keyup', () => {
 })
 
 //----------------------------------------REALIZA CADASTRO-------------------------------------------------
-function cadastrar() {
-
-    if (validNome && validUsuario && validSenha && validConfirmaSenha) {
-        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
-
-        listaUser.push(
-            {
-                nomeCad: nome.value,
-                userCad: usuario.value,
-                senhaCad: senha.value
-            });
-
-        localStorage.setItem('listaUser', JSON.stringify(listaUser));
-
-        msgError.setAttribute('style', 'display:none');
-        msgError.innerHTML = '';
-        msgSuccess.setAttribute('style', 'display:block');
-        msgSuccess.innerHTML = '<strong>Usuário Cadastrado</strong>';
-        
+function validar() {
+    if (validNome && validUsuario && validSenha && validConfirmaSenha) {  
         setTimeout(() => {
             window.location.href = 'index.php';
         }, 2000) 
