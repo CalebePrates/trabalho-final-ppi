@@ -1,7 +1,5 @@
 <?php
     session_start();
-
-
             require_once "conexao.php";
             $conn = new Conexao();
             if (isset($_POST["submit"])) {

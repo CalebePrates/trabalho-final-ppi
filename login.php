@@ -36,7 +36,7 @@
     </header>
     <main>
         <section class="row " id="section-login">
-            <form class="col-sm-12 col-md-8 col-xl-6 container center ">
+            <form method='POST'action="processa-login.php" class="col-sm-12 col-md-8 col-xl-6 container center ">
                 <div class="card">
                 
                     <h1 class="text-white">LOGIN LXUFU</h1>
@@ -45,17 +45,17 @@
                     <div id="msgSuccess"></div>
 
                     <div class="label-float">
-                        <input type="text" id="usuario" placeholder="" required autocomplete="off">
+                        <input type="text" id="usuario" name="usuario" placeholder="" required autocomplete="off">
                         <label id="userLabel" for="usuario">Usuário</label>
                     </div>
         
                     <div class="label-float">
-                        <input type="password" name="" id="senha" required autocomplete="off">
+                        <input type="password" name="senha" id="senha" required autocomplete="off">
                         <label id="labelSenha" for="senha">Senha</label>
                     </div>
                     
                     <div class="justify-center">
-                        <button class="btn btn-success" type="submit" id="btnEntrar">Entrar</button>
+                        <button class="btn btn-success" type="submit" name="submit"  id="btnEntrar">Entrar</button>
                     </div>
         
                     <div class="justify-center">
