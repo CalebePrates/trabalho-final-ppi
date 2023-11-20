@@ -19,7 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="alert alert-light col-4" role="alert">
-                    Falta XX:XX para encerrar as inscrições!
+                    Falta pouco tempo para encerrar as inscrições!
                 </div>
                 <!-- AO CLICAR NO BOTÃO, ENCERRAR SESSAO DO PHP -->
                 <div class="collapse navbar-collapse col-4" id="div-logout">
@@ -33,12 +33,15 @@
     <main class="row" id="main-tournament">
         <section class="col-sm-12 col-md-8 col-xl-6" id="section-apply-tournament">
             <h3>Solicitar entrada no torneio:</h3>
-            <form class="mb-3">
+            <form  method='POST'action="processa-pedido.php"  class="mb-3">
+                <div class="label-float">
+                        <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required autocomplete="off">
+                    </div>
                 <div class="form-check form-switch mb-3">
                   <input class="form-check-input" type="checkbox" role="switch" id="apply">
                   <label class="form-check-label" for="apply">Vai participar do torneio?</label>
                 </div>
-                <button type="submit" class="btn btn-dark">Enviar pedido</button>
+                <button type="submit" name="submit" class="btn btn-dark">Enviar pedido</button>
             </form>
             
             <div class="alert alert-success" role="alert" style="display: none;">
