@@ -126,12 +126,12 @@
                   </thead>
                   <tbody>
                   <?php
- foreach($userList as  $usuario):  ?>
-     <tr>
-        <td><?php echo $usuario["user"];?></td>
-        <td><?php echo $usuario["rating"];?></td>
-     </tr>
-<?php endforeach; ?>
+                    foreach($userList as  $usuario):  ?>
+                        <tr>
+                            <td><?php echo $usuario["user"];?></td>
+                            <td><?php echo $usuario["rating"];?></td>
+                        </tr>
+                    <?php endforeach; ?>
                       <!-- Adicione mais linhas de jogadores conforme necessário -->
                   </tbody>
               </table>

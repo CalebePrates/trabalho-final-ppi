@@ -59,6 +59,21 @@ $torneioList->execute();
         </nav>
     </header>
     <main class="col-xl-10" id="main-admin">
+    
+    <form method="POST" action="processa-torneio.php">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Nome Torneio" name="nometorneio">
+    </div>
+    <div class="col">
+      <input type="date" class="form-control" placeholder="Data Final" name ="data">
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Criar Torneio</button>
+</form>
+
+
         <section class="col-sm-12" id="table-listing">
             <div>
                 <table class="table table-striped table-hover">
