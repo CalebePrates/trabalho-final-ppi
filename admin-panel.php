@@ -1,3 +1,12 @@
+<?php
+require_once "conexao.php";
+$conn = new Conexao();
+
+$userSql = "SELECT user, nome, rating, aceito FROM users WHERE user NOT in ('admin') AND aceito = 0";
+$userList = $conn->conexao->prepare($userSql);
+$userList->execute();
+?>
+
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -52,49 +61,33 @@
     </header>
     <main class="col-xl-10" id="main-admin">
         <section class="col-sm-12" id="table-listing">
-            <button type="button" class="btn btn-primary">Permitir</button>
-            <button type="button" class="btn btn-danger">Negar</button>
             <div>
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
                       <th class="posicao">Usuario</th>
                       <th>Nome</th>
                       <th>LXUFU Rating</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="">
-                          </div>
-                      </th>
-                      <td >user1</td>
-                      <td>Player 1</td>
-                      <td>1500</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="">
-                          </div>
-                      </th>
-                      <td >user1</td>
-                      <td>Player 1</td>
-                      <td>1500</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="">
-                          </div>
-                      </th>
-                      <td>user1</td>
-                      <td>Player 1</td>
-                      <td>1500</td>
-                    </tr>
+                    <?php
+                    while ($row = $userList->fetch()) {
+                      $user = $row["user"];
+                      $nome = $row["nome"];
+                      $rating = $row["rating"];
+                      $aceito = $row["aceito"];
+                      
+                      echo '
+                      <tr>
+                        <td>'.$user.'</td>
+                        <td>'.$nome.'</td>
+                        <td>'.$rating.'</td>
+                        <td><a class="btn btn-primary" href="./accept-user.php?user='.$user.'">Permitir</a></td>
+                        <td><a class="btn btn-danger" href="./delete-user.php?user='.$user.'">Deletar</a></td>
+                      </tr>';
+                    }
+                    ?>
                   </tbody>
                 </table>
             </div>

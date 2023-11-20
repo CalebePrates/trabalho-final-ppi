@@ -1,3 +1,11 @@
+<?php
+require_once "conexao.php";
+$conn = new Conexao();
+
+$torneioSql = "SELECT torneio_nome, users_user FROM pedido_torneio WHERE aceito = 0";
+$torneioList = $conn->conexao->prepare($torneioSql);
+$torneioList->execute();
+?>
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -52,49 +60,29 @@
     </header>
     <main class="col-xl-10" id="main-admin">
         <section class="col-sm-12" id="table-listing">
-            <button type="button" class="btn btn-primary">Permitir</button>
-            <button type="button" class="btn btn-danger">Negar</button>
             <div>
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th class="posicao">Posição</th>
-                      <th>Nome</th>
-                      <th>LXUFU Rating</th>
+                      <th>Torneio</th>
+                      <th>Usuário</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="">
-                          </div>
-                      </th>
-                      <td >1</td>
-                      <td>Player 1</td>
-                      <td>1500</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="">
-                          </div>
-                      </th>
-                      <td >1</td>
-                      <td>Player 1</td>
-                      <td>1500</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="">
-                          </div>
-                      </th>
-                      <td >1</td>
-                      <td>Player 1</td>
-                      <td>1500</td>
-                    </tr>
+                    <?php
+                    while ($row = $torneioList->fetch()) {
+                      $torneio_nome = $row["torneio_nome"];
+                      $users_user = $row["users_user"];
+                      
+                      echo '
+                      <tr>
+                        <td>'.$torneio_nome.'</td>
+                        <td>'.$users_user.'</td>
+                        <td><a class="btn btn-primary" href="./accept-tournament.php?user='.$users_user.'">Permitir</a></td>
+                        <td><a class="btn btn-danger" href="./delete-pedido-torneio.php?user='.$users_user.'">Deletar</a></td>
+                      </tr>';
+                    }
+                    ?>
                   </tbody>
                 </table>
             </div>

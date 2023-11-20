@@ -3,9 +3,9 @@
 
     $conn = new Conexao();
 
-    $sql = "SELECT user,nome,rating FROM users WHERE aceito = true ORDER BY rating DESC";
-    $result = $conn->conexao->query($sql);
-    $usuarios = $result->fetchAll(PDO::FETCH_ASSOC);
+    $userSql = "SELECT user,nome,rating FROM users WHERE aceito = true ORDER BY rating DESC";
+    $userList = $conn->conexao->prepare($userSql);
+    $userList->execute();
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_destroy();
@@ -68,31 +68,32 @@
           <section class="col-sm-12" id="table-listing">
               <div class="d-flex box-pesquisa">
                 <input type="text" id="myInput" onkeyup="searchElement()" placeholder="Encontre o usuário..." title="Type in a name">
-                <button type="button" class="btn btn-danger">Excluir</button>
               </div>
               <div>    
                   <table id="usersTable" class="table table-striped table-hover table-bordered ">
                       <thead>
                         <tr>
-                          <th scope="col">#</th>
                           <th class="posicao">Usuario</th>
                           <th>Nome</th>
                           <th>LXUFU Rating</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php foreach ($usuarios as $usuario): ?>
-                            <tr>
-                              <th scope="row">
-                                  <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="">
-                                  </div>
-                              </th>
-                                <td><?= $usuario['user'] ?></td>
-                                <td><?= $usuario['nome'] ?></td>
-                                <td><?= $usuario['rating'] ?></td>
-                            </tr>
-                        <?php endforeach; ?>    
+                        <?php
+                        while ($row = $userList->fetch()) {
+                          $user = $row["user"];
+                          $nome = $row["nome"];
+                          $rating = $row["rating"];
+                          
+                          echo '
+                          <tr>
+                            <td>'.$user.'</td>
+                            <td>'.$nome.'</td>
+                            <td>'.$rating.'</td>
+                            <td><a class="btn btn-danger" href="./delete-user.php?user='.$user.'">Deletar</a></td>
+                          </tr>';
+                        }
+                        ?> 
                       </tbody>
                   </table>
                 </div>
