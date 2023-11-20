@@ -9,10 +9,10 @@
                 $verificarUsuarioStmt->execute();
 
                 if ($verificarUsuarioStmt->rowCount() > 0) {
-                    echo '<div class="alert alert-danger" role="alert">Usuário já cadastrado. Escolha outro nome de usuário.</div>';
+                    header("location:cadastro.php");
                 } else {
-                    //rating padrão é 1800
-                    $cadastrarUsuarioSql = "INSERT INTO solicitantes (user, nome, rating, senha) VALUES (?, ?,1800, ?)";
+                    //rating padrão é 1800 e padrão falso para aceito
+                    $cadastrarUsuarioSql = "INSERT INTO users (user, nome, rating, senha, aceito) VALUES (?, ?,1800, ?, 0)";
                     $cadastrarUsuarioStmt = $conn->conexao->prepare($cadastrarUsuarioSql);
 
 

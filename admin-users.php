@@ -3,7 +3,7 @@
 
     $conn = new Conexao();
 
-    $sql = "SELECT user,nome,rating FROM users ORDER BY rating DESC";
+    $sql = "SELECT user,nome,rating FROM users WHERE aceito = true ORDER BY rating DESC";
     $result = $conn->conexao->query($sql);
     $usuarios = $result->fetchAll(PDO::FETCH_ASSOC);
 
