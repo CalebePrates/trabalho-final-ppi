@@ -1,14 +1,6 @@
 let btn = document.querySelector('#verSenha');
 let btnEntrar = document.getElementById('btnEntrar');
 
-
-setTimeout(() => {
-    if (localStorage.getItem('listaUser') === null) {
-        alert("NÃO HÁ USUÁRIOS CADASTRADOS, REALIZE SEU CADASTRO")
-        window.location.href = 'cadastro.html'
-    }
-}, 3000)
-
 //SE A TECLA ENTER FOR PRESSIONADA, SE COMPORTA COMO UM CLIQUE DO MOUSE NO BOTÃO
 document.addEventListener("keypress", function (e) {
     if (e.key === 'Enter') {
@@ -24,27 +16,8 @@ function entrar() {
     let senha = document.querySelector('#senha')
     let senhaLabel = document.querySelector('#labelSenha')
 
-    let msgError = document.querySelector('#msgError')
-    let listaUser = []
+    let msgError = document.querySelector('#msgError');
 
-    let userValid = {
-        nome: '',
-        user: '',
-        senha: ''
-    }
-
-    listaUser = JSON.parse(localStorage.getItem('listaUser'))
-
-    //PERCORRE O ARRAY E VERIFICA SE OS DADOS CORRESPONDEM AOS ARMAZENADOS NO LOCALSTORAGE
-    listaUser.forEach((item) => {
-        if (usuario.value == item.userCad && senha.value == item.senhaCad) {
-            userValid = {
-                nome: item.nomeCad,
-                user: item.userCad,
-                senha: item.senhaCad
-            }
-        }
-    })
 
     //VERIFICA SE OS DADOS SÃO VALIDOS
     if (usuario.value == '' && senha.value == '') {
@@ -53,17 +26,19 @@ function entrar() {
 
     else if (usuario.value == userValid.user && senha.value == userValid.senha) {
         btnEntrar.setAttribute('style', 'background-color: green; color: white');
-        //GERA UM TOKEN GERA UM NUMERO AUTOMATICO E RANDÔMICO A PARTIR DA FUNÇÃO RANDOM DA LIB MATH, EM UMA STRING DE 16 CARACTERES
-        // A CADA SESSÃO DE LOGIN O TOKEN É GERADO
-        let token = Math.random().toString(16).substr(2) + Math.random().toString(16).substr(2);
-        localStorage.setItem('token', token);
-        
-        
-        setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 1500) 
-    }
+    
+        if(usuario.value == 'admin'){
+            setTimeout(() => {
+                window.location.href = 'admin-panel.php';
+            }, 1500) 
 
+        }else{ 
+            setTimeout(() => {
+                window.location.href = 'player-panel.php';
+            }, 1500) 
+         }
+        
+    }
     else {
         btnEntrar.setAttribute('style', 'background-color: red; color: white');
         userLabel.setAttribute('style', 'color: red; border-color: red');
