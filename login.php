@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -53,6 +57,13 @@
                         <input type="password" name="senha" id="senha" required autocomplete="off">
                         <label id="labelSenha" for="senha">Senha</label>
                     </div>
+                    <?php 
+                    if(isset($_SESSION["aviso"]))
+                    {
+                        echo "<p class= aviso> $_SESSION[aviso]</p>";
+                        $_SESSION["aviso"] = "";
+                    }
+                    ?> 
                     
                     <div class="justify-center">
                         <button class="btn btn-success" type="submit" name="submit"  id="btnEntrar">Entrar</button>

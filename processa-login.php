@@ -11,6 +11,7 @@
 
                 if ($verificarUsuarioStmt->rowCount() == 0) {
                    header("location:login.php");
+                   $_SESSION ["aviso"] = "Preencha os itens corretamente";
                 } else {
                     if($_POST["usuario"] == "admin"){
                         header("location:admin-panel.php");

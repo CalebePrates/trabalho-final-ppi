@@ -1,3 +1,14 @@
+<?php
+    require_once("conexao.php");
+
+    $conn = new Conexao();
+
+    $userSql = "SELECT user,rating FROM users WHERE aceito = true ORDER BY rating DESC";
+    $userList = $conn->conexao->prepare($userSql);
+    $userList->execute();
+
+?>
+
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -108,37 +119,19 @@
               <table class="table table-striped table-bordered table-hover table-dark table-fixed">
                   <thead class="table-dark">
                       <tr>
-                          <th class="posicao">Posição</th>
+                         
                           <th>Nome</th>
                           <th>LXUFU Rating</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr>
-                          <td >1</td>
-                          <td>Player 1</td>
-                          <td>1500</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
+                  <?php
+ foreach($userList as  $usuario):  ?>
+     <tr>
+        <td><?php echo $usuario["user"];?></td>
+        <td><?php echo $usuario["rating"];?></td>
+     </tr>
+<?php endforeach; ?>
                       <!-- Adicione mais linhas de jogadores conforme necessário -->
                   </tbody>
               </table>
