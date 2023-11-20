@@ -1,3 +1,13 @@
+<?php
+require_once("conexao.php");
+
+$conn = new Conexao();
+
+$sql = "SELECT user,rating FROM users WHERE aceito = true ORDER BY rating DESC";
+$result = $conn->conexao->query($sql);
+$usuarios = $result->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -108,37 +118,21 @@
               <table class="table table-striped table-bordered table-hover table-dark table-fixed">
                   <thead class="table-dark">
                       <tr>
-                          <th class="posicao">Posição</th>
+                          
                           <th>Nome</th>
                           <th>LXUFU Rating</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr>
-                          <td >1</td>
-                          <td>Player 1</td>
-                          <td>1500</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Player 2</td>
-                          <td>1600</td>
-                      </tr>
+                  <tbody>
+                        <?php foreach ($usuarios as $usuario): ?>
+                           
+                              </th>
+                                <td><?= $usuario['user'] ?></td>
+                                <td><?= $usuario['rating'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>    
+                      </tbody>
                       <!-- Adicione mais linhas de jogadores conforme necessário -->
                   </tbody>
               </table>
