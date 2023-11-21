@@ -17,7 +17,6 @@ try{
          countDate = new Date('December 24, 2023 00:00:00');
        }
    };
-
    xhr.send();
 }catch(e){
    //padrão próximo torneio

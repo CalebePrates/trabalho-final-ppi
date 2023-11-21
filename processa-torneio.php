@@ -12,7 +12,5 @@
                     $cadastrarTorneioStmt->execute();
 
                     header("location:admin-panel.php");
-                
         
-
     ?>
