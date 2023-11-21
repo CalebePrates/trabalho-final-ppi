@@ -58,23 +58,21 @@ $torneioList->execute();
             </div>
         </nav>
     </header>
-    <main class="col-xl-10" id="main-admin">
-    
-    <form method="POST" action="processa-torneio.php">
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Nome Torneio" name="nometorneio">
-    </div>
-    <div class="col">
-      <input type="date" class="form-control" placeholder="Data Final" name ="data">
-    </div>
-  </div>
-  <br>
-  <button type="submit" class="btn btn-primary">Criar Torneio</button>
-</form>
-
-
+    <main class="col-xl-10">
         <section class="col-sm-12" id="table-listing">
+          <form  method="POST" action="processa-torneio.php" class="col-sm-12 col-md-8 col-xl-6">
+              <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Nome Torneio" name="nometorneio">
+                </div>
+                <div class="col">
+                   <input type="date" class="form-control" placeholder="Data Final" name ="data">
+                </div>
+                <div class="col">
+                  <button type="submit" class="btn btn-primary">Criar Torneio</button>
+                </div>
+              </div> 
+            </form> 
             <div>
                 <table class="table table-striped table-hover">
                   <thead>

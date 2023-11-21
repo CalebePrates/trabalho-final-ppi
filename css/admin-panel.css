@@ -8,8 +8,8 @@ body {
 }
 
 #table-listing {
-    margin-top: 50px;
-    padding: 50px;
+    margin-top: 60px;
+    padding: 60px;
 }
 
 #myInput{
@@ -17,4 +17,3 @@ body {
     margin-right: 5px;
     border-radius: 5px;
 }
-
